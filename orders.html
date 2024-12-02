@@ -7,6 +7,13 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Details</title>
+    <style>
+        .darkTheme {
+
+            background-color: lightcyan;
+
+        }
+    </style>
 </head>
 
 <body>
@@ -16,7 +23,9 @@
         </header>
         <article>
             <table class="table-style">
+                <caption>Order Status</caption>
                 <thead class="table-heading">
+
                     <tr>
                         <th>Sl.No</th>
                         <th>Customer Name</th>
@@ -24,7 +33,7 @@
                         <th>Status</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="darkTheme">
                     <tr>
                         <td>1</td>
                         <td>Ramesh</td>
@@ -57,9 +66,17 @@
                     </tr>
 
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" class="centerText">Designed By Rajkiran</td>
+                    </tr>
+                </tfoot>
             </table>
         </article>
+
+
     </section>
+
 </body>
 
 </html>
