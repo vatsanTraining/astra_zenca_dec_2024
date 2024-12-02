@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Customer</title>
+    <link rel="shortcut icon" href="images/favicon.jpeg" type="image/x-icon">
+
+    <link rel="stylesheet" href="styles/global.css">
+</head>
+
+<body>
+
+    <section>
+        <h1 class="centerText">Add Customer Details</h1>
+
+        <form action="orders.html" method="get">
+
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" id="firstName">
+
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" id="lastName">
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+
+            <label for="qualification">Qualifcation</label>
+            <select name="qualification" id="qualification">
+
+                <optgroup label="Under Graduate">
+                    <option value="UG">B.Sc</option>
+                    <option value="UG">B.com</option>
+                    <option value="ENG">B.E</option>
+                </optgroup>
+                <optgroup label="Post Graduate">
+                    <option value="PG">M.Sc</option>
+                    <option value="PG">M.E</option>
+
+                </optgroup>
+            </select>
+
+            <label>Skill Sets</label>
+            <!-- value name should be same for all the checkbox -->
+            <span>Devops</span><input type="checkbox" name="skill" id="devops" value="Devops">
+            <span>Spring Boot</span><input type="checkbox" name="skill" id="boot" value="springboot">
+            <span>Python</span><input type="checkbox" name="skill" id="python" value="python">
+
+            <label>Preffered Food</label>
+            <span>Dosa</span><input type="radio" value="Dosa" name="food" id="dosa">
+            <span>Briyani</span><input type="radio" value="Briyani" name="food" id="briyant">
+            <span>Burger</span><input type="radio" value="Burger" name="food" id="burger">
+
+            <input type="submit" value="Add" class="primary-btn">
+
+        </form>
+
+    </section>
+</body>
+
+</html>
