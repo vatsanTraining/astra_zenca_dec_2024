@@ -2,3 +2,20 @@
 
     text-align: center;
 }
+
+.table-style{
+
+    border: 1px solid #0000ff;
+    border-collapse: collapse;
+
+}
+
+.table-heading{
+
+    background-color: #808080;
+}
+tr,th,td{
+    border: 1px solid #0000ff;
+
+
+}
