@@ -60,7 +60,9 @@ article>p{
 
 article p{
 
-    color :blueviolet
+    color :blueviolet;
+    
+    
 }
 /* Pseduo Element */
 
