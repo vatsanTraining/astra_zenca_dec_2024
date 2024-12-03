@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block and Inline</title>
+    <style>
+        html {
+            font-size: 10px;
+        }
+
+        ol>li {
+            display: inline;
+        }
+
+        .box {
+
+            background-color: aquamarine;
+            width: 100px;
+            height: 100px;
+            /* display: inline; */
+            margin: 10px;
+        }
+
+        .flex-model {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        .parent {
+            font-size: 20px;
+        }
+
+        .child {
+            font-size: 1.5em;
+        }
+
+        .sibling {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <p style="padding-left: 10px; padding-top: 10px;">One</p>
+    </div>
+    <div class="box">
+        <p>Two</p>
+    </div>
+
+    <ol>
+        <li>Ramesh</li>
+        <li>Suresh</li>
+        <li>Magesh</li>
+    </ol>
+
+    <h2> Using Flex Box</h2>
+
+    <section style="border: 1px solid blue;">
+        <article class="flex-model">
+            <div class="box">Three</div>
+            <div class="box">Four</div>
+            <div class="box">Five</div>
+            <div class="box">Six</div>
+        </article>
+
+    </section>
+
+    <section style="width: 200px; height: 300px;
+          border: 2px solid green; display: flex; align-items: center; justify-content: center;">
+        <div class="box"></div>
+    </section>
+
+    <section class="parent">
+        <h1 class="child"> Using CSS Units-EM</h1>
+    </section>
+
+    <h2 class="sibling">Using CSS Unit-REM-It Should be 15</h2>
+</body>
+
+</html>

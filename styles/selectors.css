@@ -1,0 +1,77 @@
+/* Glbal Selector */
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* root selector */
+:root{
+    --primary-color: #ff55ff
+}
+
+/* ID Selector */
+#title{
+
+    color: blueviolet;
+}
+/* Class Selector */
+
+.centerText{
+
+    text-align: center;
+}
+/* Element Name Selector */
+
+table{
+    border: 1px solid #0000ff;
+    border-collapse: collapse;
+    margin: auto 0;
+  
+}
+/* Grouping Selector */
+tr,td,th{
+    border: 1px solid #0000ff;
+
+}
+/* Pseduo Element */
+h1::first-letter{
+
+    font-size: 1.4em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+/* Pseduo Class */
+tr:hover{
+
+    background-color: aqua;
+}
+/* selecting nth element - zebra styling */
+tbody>tr:nth-child(odd){
+
+    background-color: #0000ff;
+}
+/* Child Selector */
+
+article>p{
+
+    font-size: 1.2em;
+
+}
+
+/* Descendent Selector */
+
+article p{
+
+    color :blueviolet
+}
+/* Pseduo Element */
+
+article:last-child{
+
+    background-color: var(--primary-color);
+}
+
+/* attribute Selector*/
+
+td[colspan="4"]{
+
+    background: green;
+}
