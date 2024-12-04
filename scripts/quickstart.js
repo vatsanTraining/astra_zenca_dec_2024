@@ -26,7 +26,7 @@ obj.hightLight = function () {
 };
 
 obj.underStandJS = function () {
-  var header = document.querySelector("h3");
+  var header = document.querySelector("h1");
 
   //   header.addEventListener("click", function () {
   //     alert("hi");
@@ -39,7 +39,7 @@ obj.underStandJS = function () {
 
 obj.callBack = function (text) {
   return function () {
-    alert(text);
+    console.log("click event fired");
   };
 };
 
