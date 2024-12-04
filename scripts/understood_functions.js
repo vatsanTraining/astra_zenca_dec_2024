@@ -102,14 +102,22 @@ console.log(module.one());
 
 // function which can testAge or testMark and give the result
 
-function predicate(){}
+function predicate(testFunc) {
+  let arg = 12;
 
-function testAge(age){
+  console.log(testFunc);
+  let result = testFunc(arg);
 
-    age>18?true:false
+  console.log(result);
 }
 
-
-function testMark(mark){
-    mark>40?true:false
+function testAge(age) {
+  return age > 18 ? true : false;
 }
+
+function testMark(mark) {
+  return mark > 18 ? false : true;
+}
+
+predicate(testAge);
+predicate(testMark);
