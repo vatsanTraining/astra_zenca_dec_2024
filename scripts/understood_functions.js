@@ -100,7 +100,9 @@ var module = (function () {
 
 console.log(module.one());
 
+// function which can testAge or testMark and give the result
 
+function predicate(){}
 
 function testAge(age){
 
