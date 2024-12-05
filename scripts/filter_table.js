@@ -95,9 +95,7 @@ obj.renderContent = function (tableId, studentList) {
   });
 };
 
-obj.renderTable("custom-table", "cust-table", "table-style");
-
-obj.renderHeading("cust-table", "Roll Number", "studentname", "mark", "Branch");
+// == Creating Objects =========
 
 let ram = new Student(101, "Ganesh", 95, "B.E");
 let shyam = new Student(102, "Shyam", 25, "B.Sc");
@@ -105,9 +103,13 @@ let kumar = new Student(103, "Kumar", 85, "M.Sc");
 
 let studentList = [ram, shyam, kumar];
 
-obj.renderContent("cust-table", studentList);
-
 //==== Calling the Methods
+
+obj.renderTable("custom-table", "cust-table", "table-style");
+
+obj.renderHeading("cust-table", "Roll Number", "studentname", "mark", "Branch");
+
+obj.renderContent("cust-table", studentList);
 
 // Attach Event called with table id , search field Id and table data column
 
