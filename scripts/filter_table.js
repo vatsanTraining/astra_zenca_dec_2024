@@ -7,38 +7,40 @@ function Student(rollNumber, studentname, mark, branch) {
 
 var obj = {}; // using object literal syntax a blank object is created
 
-obj.attachEvent = function () {
-  let srchFld = document.querySelector("#srchByName");
+obj.attachEvent = function (tableId, elementId, selector) {
+  let srchFld = document.querySelector(elementId);
 
   srchFld.addEventListener("keyup", (event) => {
-    let valToSrch = event.target.value.toLowerCase();
-    obj.filterTableData(valToSrch, "td:nth-child(2)");
+    let valToSrch = event.target.value;
+    console.log(valToSrch);
+    obj.filterTableData(tableId, valToSrch, selector);
   });
 };
 
-obj.filterTableData = function (valToSrch, colToSrch) {
-  let tableBody = document.querySelector("tbody");
+obj.filterTableData = function (tableId, valToSrch, selector) {
+  let srch = "#" + tableId;
+
+  let tableBody = document.querySelector(srch).querySelector("tbody");
 
   let rows = tableBody.querySelectorAll("tr");
 
-  // tableBody.querySelectorAll("tr").forEach((eachRow)=>{
-
-  // })
-
   for (let rowIndex = 0; rowIndex < rows.length; rowIndex++) {
-    let cols = rows[rowIndex].querySelectorAll(colToSrch);
+    let cols = rows[rowIndex].querySelectorAll(selector);
 
     for (let colIndex = 0; colIndex < cols.length; colIndex++) {
-      cols[colIndex].textContent.includes(valToSrch.toLowerCase())
+      console.log(cols[colIndex].textContent.includes(valToSrch.toLowerCase()));
+
+      cols[colIndex].textContent.includes(valToSrch)
         ? (rows[rowIndex].style.display = "table-row")
         : (rows[rowIndex].style.display = "none");
     }
   }
 };
-obj.attachEvent();
+obj.attachEvent("first", "#srchByName", "td:nth-child(2)");
 
 obj.renderTable = function (parentId, tableId, className) {
   let customTable = document.createElement("table");
+
   customTable.setAttribute("id", tableId);
   customTable.className = className;
 
@@ -46,7 +48,12 @@ obj.renderTable = function (parentId, tableId, className) {
 };
 
 obj.renderHeading = function (tableId, ...colNames) {
+  let customTable = document.getElementById(tableId);
+
   let row = document.createElement("tr");
+
+  let thead = document.createElement("thead");
+  customTable.appendChild(thead);
 
   colNames.forEach((eachColName) => {
     let col = document.createElement("th");
@@ -54,11 +61,17 @@ obj.renderHeading = function (tableId, ...colNames) {
     row.appendChild(col);
   });
 
-  document.getElementById(tableId).appendChild(row);
+  document.getElementById(tableId).querySelector("thead").appendChild(row);
 };
 
 obj.renderContent = function (tableId, studentList) {
   var row = null;
+
+  let tbodyRef = document.createElement("tbody");
+  let customTable = document.getElementById(tableId);
+
+  var tbody = customTable.appendChild(tbodyRef);
+
   studentList.forEach((eachStudent) => {
     row = document.createElement("tr");
 
@@ -69,7 +82,7 @@ obj.renderContent = function (tableId, studentList) {
       col.textContent = eachStudent[propList[j]];
       row.appendChild(col);
     }
-    document.getElementById(tableId).appendChild(row);
+    document.getElementById(tableId).querySelector("tbody").appendChild(row);
   });
 };
 obj.renderTable("custom-table", "cust-table", "table-style");
@@ -84,4 +97,10 @@ let studentList = [ram, shyam, kumar];
 
 obj.renderContent("cust-table", studentList);
 
+obj.attachEvent("cust-table", "#srchByBranch", "td:nth-child(4)");
+
 // obj.renderContent(ram,shyam)  we can make it work with rest operator
+
+// tableBody.querySelectorAll("tr").forEach((eachRow)=>{
+
+// })
