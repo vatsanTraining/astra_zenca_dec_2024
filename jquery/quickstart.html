@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <style>
+        .bgcolor {
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="title"></h1>
+
+
+    <p id="para1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique accusamus quo animi rem, quae
+        cumque possimus minima quia maxime odio quos earum exercitationem odit adipisci voluptate voluptas, at magni
+        eveniet.</p>
+
+    <button id="hideBtn">Hide</button>
+
+    <button id="showBtn">Show</button>
+
+    <table>
+        <tr>
+            <td>1</td>
+            <td>Chennai</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Pune</td>
+        </tr>
+
+    </table>
+
+    <button id="addRow">Add Row</button>
+
+    <script>
+
+        $(function () {
+
+            $('#title').text('jQuery Demo')
+
+
+            $("#showBtn").hide()
+
+            $("#hideBtn").on('click', function () {
+                $('#para1').hide();
+                $('#hideBtn').hide()
+                $('#showBtn').show()
+            })
+
+            $("#showBtn").on('click', function () {
+                $('#para1').show();
+                $('#hideBtn').show()
+                $('#showBtn').hide()
+            })
+
+            // $('tr').on('mouseover', function () {
+            //     $(this).addClass('bgcolor')
+            // })
+
+            $(document).on('mouseover', 'tr', function () {
+                $(this).addClass('bgcolor')
+            })
+
+            $(document).on('mouseout', 'tr', function () {
+                $(this).removeClass('bgcolor')
+            })
+
+
+            // $('tr').on('mouseout', function () {
+            //     $(this).removeClass('bgcolor')
+            // })
+
+
+            $("#addRow").on('click', function () {
+                $('table').append("<tr><td>3</td><td>Goa</td></tr>")
+            })
+        })
+    </script>
+
+</body>
+
+</html>

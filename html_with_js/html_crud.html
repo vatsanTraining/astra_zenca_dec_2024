@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/global.css">
+</head>
+
+<body>
+
+    <section class="container">
+        <article class="form-container">
+            <form action="#" id="order-form">
+                <div>
+                    <label for="orderId"></label>
+                    <input type="text" name="orderNumnber" id="orderNumber" required>
+                </div>
+                <div>
+                    <label for="customerName"></label>
+                    <input type="text" name="customerName" id="customerName" required>
+                </div>
+                <div>
+                    <label for="orderDate">Order Date</label>
+                    <input type="date" name="orderDate" id="orderDate">
+                </div>
+                <div>
+                    <label for="orderValue">Order Value</label>
+                    <input type="text" name="orderValue" id="orderValue">
+                </div>
+                <div>
+                    <input type="submit" value="Add" id="submitBtn">
+                </div>
+            </form>
+        </article>
+        <article class="table-continer"></article>
+    </section>
+
+    <script src="../scripts/crud.js"></script>
+</body>
+
+</html>

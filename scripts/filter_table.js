@@ -54,6 +54,7 @@ obj.renderTable = function (parentId, tableId, className) {
 };
 
 // == Render Tablde Heading =============
+
 obj.renderHeading = function (tableId, ...colNames) {
   let customTable = document.getElementById(tableId);
 

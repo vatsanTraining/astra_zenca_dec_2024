@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <section id="userList">
+
+        <p></p>
+    </section>
+
+    <script>
+
+        $(function () {
+
+            // $.get('https://jsonplaceholder.typicode.com/users', function (data) {
+
+            //     $('p').text(data[0].username)
+            // })
+
+            $.ajax({
+                method: 'GET',
+                url: 'https://jsonplaceholder.typicode.com/users',
+                success: function (data) {
+
+                    $.each(data, function (idx,element) {
+                        console.log(element.username)
+                        console.log(element.email);
+                        $('table').append("<tr><td>" + element.userName + "</td><td>" + element.email + "</td></tr>")
+
+                    })
+                    // $('p').text(data[0].username)
+
+                },
+                error: function (error) {
+                    console.log(error)
+                }
+
+            })
+        })
+    </script>
+</body>
+
+</html>
