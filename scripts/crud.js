@@ -118,6 +118,8 @@ crudObj.updateOrder = function (orderdata) {
   rowIndex = editElementRowIndex;
 
   crudObj.replaceTableRow("table", rowIndex, orderdata);
+  document.querySelector("#submitBtn").value = "Add";
+  document.getElementById("order-form").reset();
 };
 crudObj.attachEditEvent = (editBtn, rowData) => {
   editBtn.addEventListener("click", () => {
