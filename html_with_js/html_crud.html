@@ -14,11 +14,11 @@
         <article class="form-container">
             <form action="#" id="order-form">
                 <div>
-                    <label for="orderId"></label>
+                    <label for="orderId">Order Number</label>
                     <input type="text" name="orderNumnber" id="orderNumber" required>
                 </div>
                 <div>
-                    <label for="customerName"></label>
+                    <label for="customerName">Customer Name</label>
                     <input type="text" name="customerName" id="customerName" required>
                 </div>
                 <div>
@@ -34,7 +34,22 @@
                 </div>
             </form>
         </article>
-        <article class="table-continer"></article>
+        <article class="table-container">
+
+            <table id="order-table">
+                <thead>
+                    <th>Order Number</th>
+                    <th>Customer Name</th>
+                    <th>Order Date</th>
+                    <th>Order Value</th>
+                    <th>Action</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </article>
     </section>
 
     <script src="../scripts/crud.js"></script>
