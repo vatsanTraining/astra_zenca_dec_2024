@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table id="sortableTable">
+
+        <thead>
+            <tr>
+                <th id="itemHeader">Item</th>
+                <th id="priceHeader">Price</th>
+                <th id="quantityHeader">Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Apples</td>
+                <td>2.50</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Bananas</td>
+                <td>1.50</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>Oranges</td>
+                <td>3.00</td>
+                <td>8</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+
+        function sortTable(columnIndex) {
+
+            var table = document.getElementById("sortableTable");
+            var rows = table.querySelectorAll("tbody > tr");
+
+            console.log(rows)
+            const tableRowsArray = Array.from(rows);
+
+            console.log(tableRowsArray)
+            tableRowsArray.sort(function (rowA, rowB) {
+
+                var cellA = rowA.cells[columnIndex].textContent;
+                var cellB = rowB.cells[columnIndex].textContent;
+
+                console.log(cellA + "," + cellB)
+                if (!isNaN(cellA) && !isNaN(cellB)) {
+                    return cellA - cellB;
+                }
+
+                return cellA.localeCompare(cellB);
+            });
+
+            tableRowsArray.forEach(function (row) {
+                table.querySelector("tbody").appendChild(row);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("itemHeader")
+                .addEventListener("click", function () {
+                    sortTable(0);
+                });
+            document.getElementById("priceHeader")
+                .addEventListener("click", function () {
+                    sortTable(1);
+                });
+            document.getElementById("quantityHeader")
+                .addEventListener("click", function () {
+                    sortTable(2);
+                });
+        });
+    </script>
+
+</body>
+
+</html>
