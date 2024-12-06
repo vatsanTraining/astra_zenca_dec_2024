@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent {
+
+            border: 2px solid blue;
+            width: 200px;
+            height: 100px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.2em;
+            background-color: azure;
+        }
+
+        /* font related properties are inherited by child elements while border/padding/marigin are 
+// not inerited you can use inherit to inherit those properties also */
+        .child {
+
+            width: 200px;
+            height: 200px;
+            border: inherit;
+            background-color: inherit;
+
+        }
+
+        .master {
+
+            font-size: 12px !important;
+        }
+
+        .detail {
+
+            font-size: 24px;
+        }
+
+        .btn {
+            background-color: azure;
+        }
+
+        .btn-bold {
+            font-size: 1.5em;
+            padding: 15px;
+        }
+
+        img {
+
+            width: 200px;
+            height: 200px;
+
+        }
+
+        @media print {
+
+            img {
+                display: none;
+            }
+
+            .detail {
+                font-size: 18px;
+
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="parent">
+        Parent Container
+        <div class="child">
+            Child Container
+        </div>
+    </div>
+
+    <div class="master">
+        Master Container
+        <div class="master detail">
+            Detail Container
+        </div>
+        <div class="master" style="font-size: 34px;">
+
+            One more example
+        </div>
+    </div>
+
+    <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde illum saepe, doloribus dignissimos libero
+            praesentium, aliquam iusto eius corporis reprehenderit ipsum optio aperiam ullam fugit provident a aut
+            tempora dolorem.</p>
+        <img src="images/javascript.jpeg" alt="logo">
+    </div>
+</body>
+
+</html>

@@ -1,3 +1,5 @@
+
+
 var crudObj = {};
 
 crudObj.orderList = [];
@@ -74,6 +76,8 @@ crudObj.addToTable = function (rowData) {
   editBtn.setAttribute("data-id", rowData.orderNumber);
   editBtn.textContent = "Edit";
 
+  crudObj.attachEditEvent(editBtn);
+
   let col6 = document.createElement("td");
   col6.appendChild(editBtn);
 
@@ -87,5 +91,32 @@ crudObj.addToTable = function (rowData) {
   tbody.appendChild(tableRow);
 
   console.log(tbody);
+  crudObj.attachDelEvent(delBtn);
+};
+
+crudObj.attachEditEvent = (element) => {
+
+    element.addEventListener('click',()=>{
+        
+    })
+};
+
+crudObj.attachDelEvent = (element) => {
+  element.addEventListener("click", () => {
+    let flag = confirm("Are you sure to Delete");
+
+    if (flag) {
+      // updating the view
+      element.parentElement.parentElement.remove();
+      let orderNumber = element.getAttribute("data-id");
+
+      // updating the array
+      let updatedList = crudObj.orderList.filter(
+        (e) => e.orderNumber != orderNumber
+      );
+      // updating the storage
+      localStorage.setItem("orderList", updatedList);
+    }
+  });
 };
 crudObj.init();
