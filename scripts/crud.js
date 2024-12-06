@@ -1,5 +1,3 @@
-
-
 var crudObj = {};
 
 crudObj.orderList = [];
@@ -32,7 +30,15 @@ crudObj.init = function () {
       orderValue: orderValue,
     };
     console.log(orderObj);
-    crudObj.storeOrder(orderObj);
+    let actionText = frmRef.querySelector("input[type=submit").value;
+
+    if (actionText === "Add") {
+      crudObj.storeOrder(orderObj);
+    }
+
+    if (actionText === "Update") {
+      crudObj.updateOrder(orderObj);
+    }
   };
 };
 
@@ -76,7 +82,7 @@ crudObj.addToTable = function (rowData) {
   editBtn.setAttribute("data-id", rowData.orderNumber);
   editBtn.textContent = "Edit";
 
-  crudObj.attachEditEvent(editBtn);
+  crudObj.attachEditEvent(editBtn, rowData);
 
   let col6 = document.createElement("td");
   col6.appendChild(editBtn);
@@ -92,13 +98,52 @@ crudObj.addToTable = function (rowData) {
 
   console.log(tbody);
   crudObj.attachDelEvent(delBtn);
+
+  document.getElementById("order-form").reset();
 };
 
-crudObj.attachEditEvent = (element) => {
+crudObj.updateOrder = function (orderdata) {
+  console.log(orderdata);
 
-    element.addEventListener('click',()=>{
-        
-    })
+  const index = crudObj.orderList.findIndex(
+    (ord) => ord.orderNumber === orderdata.orderNumber
+  );
+
+  if (index !== -1) {
+    crudObj.orderList[index] = orderdata;
+  }
+
+  console.log(crudObj.orderList);
+
+  rowIndex = editElementRowIndex;
+
+  crudObj.replaceTableRow("table", rowIndex, orderdata);
+};
+crudObj.attachEditEvent = (editBtn, rowData) => {
+  editBtn.addEventListener("click", () => {
+    editElementRowIndex = editBtn.parentElement.parentElement.rowIndex;
+
+    document.getElementById("orderNumber").value = rowData.orderNumber;
+
+    document.getElementById("customerName").value = rowData.customerName;
+
+    document.getElementById("orderDate").value = rowData.orderDate;
+
+    document.getElementById("orderValue").value = rowData.orderValue;
+
+    document.querySelector("#submitBtn").value = "Update";
+    document
+      .querySelector("#submitBtn")
+      .setAttribute("class", "btn btn-warning");
+  });
+};
+
+crudObj.replaceTableRow = function (tableId, rowIndex, objectData) {
+  const table = document.querySelector(tableId);
+  const rowToUpdate = table.rows[rowIndex]; // +1 to account for the header row
+  rowToUpdate.cells[0].textContent = objectData.orderNumber;
+  rowToUpdate.cells[1].textContent = objectData.customerName;
+  rowToUpdate.cells[2].textContent = objectData.orderDate;
 };
 
 crudObj.attachDelEvent = (element) => {
